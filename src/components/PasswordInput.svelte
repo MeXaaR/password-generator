@@ -2,17 +2,8 @@
   import {
     password,
     encrypted,
-    generator,
-    filledText,
-    small,
-    SMALL_SIZE,
-    BIG_SIZE,
   } from "../utils/store";
-  import { slide } from "svelte/transition";
-  let isLongEnough = false;
-  $: isLongEnough = $small
-    ? $filledText.length >= SMALL_SIZE
-    : $filledText.length >= BIG_SIZE;
+  
 </script>
 
 <style>
@@ -21,8 +12,8 @@
   }
 </style>
 
-{#if isLongEnough}
-  <div transition:slide class="wrapper">
+
+  <div class="wrapper">
     <div class="field is-horizontal">
       <div class="field-label is-normal">
         <div class="label">Password</div>
@@ -55,4 +46,4 @@
       </div>
     </div>
   </div>
-{/if}
+
