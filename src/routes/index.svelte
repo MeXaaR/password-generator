@@ -25,7 +25,6 @@
     };
 
     domtoimage.toJpeg(node, options).then((dataUrl) => {
-      console.log(dataUrl);
       var a = document.createElement("a");
       a.href = dataUrl;
       a.download = `my-SMPCG-grid-${new Date().valueOf()}.png`;

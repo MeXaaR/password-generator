@@ -15,7 +15,6 @@
   $: isLongEnough = $small
     ? $filledText.length >= SMALL_SIZE
     : $filledText.length >= BIG_SIZE;
-  $: console.log(isLongEnough);
 </script>
 
 <style>
