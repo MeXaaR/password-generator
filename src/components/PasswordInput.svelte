@@ -1,0 +1,58 @@
+<script>
+  import {
+    password,
+    encrypted,
+    generator,
+    filledText,
+    small,
+    SMALL_SIZE,
+    BIG_SIZE,
+  } from "../utils/store";
+  import { slide } from "svelte/transition";
+  let isLongEnough = false;
+  $: isLongEnough = $small
+    ? $filledText.length >= SMALL_SIZE
+    : $filledText.length >= BIG_SIZE;
+</script>
+
+<style>
+  .wrapper {
+    margin-bottom: 15px;
+  }
+</style>
+
+{#if isLongEnough}
+  <div transition:slide class="wrapper">
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <div class="label">Password</div>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <input
+              class="input"
+              bind:value={$password}
+              placeholder="Type your word here" />
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <div class="label">Encrypted</div>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <input
+              class="input is-static"
+              type="text"
+              value={$encrypted}
+              readonly />
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{/if}
