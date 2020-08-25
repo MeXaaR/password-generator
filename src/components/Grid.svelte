@@ -11,11 +11,6 @@
 </script>
 
 <style>
-  .table-container {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-  }
   td {
     text-align: center;
   }
