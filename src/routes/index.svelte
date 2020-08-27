@@ -37,7 +37,7 @@
 </style>
 
 <svelte:head>
-  <title>SMPCG || Simple Memory Password Card Generator</title>
+  <title>SPCG || Simple Password Card Generator</title>
 </svelte:head>
 
 <Disclaimer />

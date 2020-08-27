@@ -19,9 +19,9 @@
   }
 </style>
 
-<h1 class="title">SMPCG</h1>
+<h1 class="title">SPCG</h1>
 <h2 class="subtitle">
-  Simple Memory Password Card Generator
+  Simple Password Card Generator
   {#if closed}
     <span class="icon has-text-info" on:click={toggleDisclaimer}>
       <svg style="width:24px;height:24px" viewBox="0 0 24 24">

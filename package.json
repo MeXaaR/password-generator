@@ -1,6 +1,6 @@
 {
   "name": "SMPCG",
-  "description": "SMPCG",
+  "description": "The simple way to remember passwords",
   "version": "0.0.2",
   "scripts": {
     "dev": "sapper dev",
