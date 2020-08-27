@@ -13,6 +13,11 @@
   $: isLongEnough = $small
     ? $filledText.length >= SMALL_SIZE
     : $filledText.length >= BIG_SIZE;
+
+  const updateValue = (e) => {
+    const simplified = e.target.value.toLowerCase().replace(/[^a-z]/g, "");
+    password.set(simplified);
+  };
 </script>
 
 <style>
@@ -32,7 +37,8 @@
           <p class="control">
             <input
               class="input"
-              bind:value={$password}
+              value={$password}
+              on:input={updateValue}
               placeholder="Type your word here" />
           </p>
         </div>

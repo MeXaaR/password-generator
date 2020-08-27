@@ -4,10 +4,10 @@
     generator,
     LENGTH,
     small,
-    toEncrypt,
+    password,
   } from "../utils/store";
-  let toEncryptArray;
-  $: toEncryptArray = (!!$toEncrypt && $toEncrypt.split("")) || [];
+  let passwordArray;
+  $: passwordArray = (!!$password && $password.split("")) || [];
 </script>
 
 <style>
@@ -56,7 +56,7 @@
             <td
               class:is-active={letters
                 .split('')
-                .find((letter) => letter === toEncryptArray[number - 1])}>
+                .find((letter) => letter === passwordArray[number - 1])}>
               {$generator[letters][number - 1] || '00'}
             </td>
           {/each}

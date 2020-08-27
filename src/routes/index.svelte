@@ -14,10 +14,7 @@
   const toggleKeyText = () => {
     keyText = !keyText;
   };
-  const resetKeyText = () => {
-    text.set("");
-    keyText = true;
-  };
+
   const downloadGrid = () => {
     var node = document.getElementById("password-grid");
     var options = {
@@ -47,7 +44,7 @@
 
 <div class="actions buttons">
   <button class="button is-info" on:click={toggleKeyText}>Edit key text</button>
-  <button class="button is-warning" on:click={resetKeyText}>
+  <button class="button is-warning" on:click={text.reset}>
     Reset Key text
   </button>
   <button class="button is-success" on:click={downloadGrid}>

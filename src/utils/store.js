@@ -1,4 +1,5 @@
 import { writable, derived } from "svelte/store";
+import { advancedStore } from "./custom-stores";
 
 export const ALPHABET = [
   "ab",
@@ -35,8 +36,8 @@ export const BIG_LENGTH = [
   15,
   16,
 ];
-export const SMALL_SIZE = 416;
-export const BIG_SIZE = 832;
+export const SMALL_SIZE = 208;
+export const BIG_SIZE = 416;
 
 const useLocalStorageInitialize = (key, defaultValue, method) => {
   if (typeof localStorage !== "undefined") {
@@ -50,9 +51,9 @@ const useLocalStorage = (key, value) => {
     localStorage.setItem(key, value);
   }
 };
-export const text = writable(useLocalStorageInitialize("text", ""));
+export const text = advancedStore(useLocalStorageInitialize("text", ""));
 export const password = writable("");
-export const small = writable(useLocalStorageInitialize("small"));
+export const small = writable(useLocalStorageInitialize("small", true));
 
 export const filledText = derived(text, ($text) => {
   let number = 0;
@@ -69,9 +70,6 @@ export const filledText = derived(text, ($text) => {
     })
     .join("");
 });
-export const toEncrypt = derived(password, ($password) =>
-  $password.toLowerCase().replace(/ /g, "")
-);
 export const generator = derived(
   [filledText, small],
   ([$filledText, $small]) => {
@@ -107,11 +105,11 @@ export const generator = derived(
 );
 
 export const encrypted = derived(
-  [toEncrypt, generator],
-  ([$toEncrypt, $generator]) => {
+  [password, generator],
+  ([$password, $generator]) => {
     let crypted = [];
-    if (!!$toEncrypt) {
-      $toEncrypt.split("").forEach((letter, index) => {
+    if (!!$password) {
+      $password.split("").forEach((letter, index) => {
         let currentKey = "";
         Object.keys($generator).forEach((letters) => {
           const isThisKey = !!letters.split("").find((l) => l === letter);

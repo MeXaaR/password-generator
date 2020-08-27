@@ -42,7 +42,7 @@
     <button class="delete" on:click={toggleDisclaimer} />
     <h4 class="title is-4">How does it work ?</h4>
     This is a simple way to remember your password without dependind on an
-    online service. You take a text of 416 character minimum. Every space will
+    online service. You take a text of 208 character minimum. Every space will
     be filled with a number starting from 0.
     <br />
     This will generate a card you can easily reproduce on a paper without this
