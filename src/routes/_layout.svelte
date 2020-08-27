@@ -1,5 +1,6 @@
 <script>
   import "bulma/css/bulma.css";
+  import Footer from "../components/Footer.svelte";
 </script>
 
 <style>
@@ -16,3 +17,4 @@
 <main>
   <slot />
 </main>
+<Footer />
