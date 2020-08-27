@@ -36,10 +36,6 @@
   }
 </style>
 
-<svelte:head>
-  <title>SPCG || Simple Password Card Generator</title>
-</svelte:head>
-
 <Disclaimer />
 
 <div class="actions buttons">

@@ -2,6 +2,10 @@
   import {
     password,
     encrypted,
+    small,
+    filledText,
+    SMALL_SIZE,
+    BIG_SIZE,
   } from "../utils/store";
   import { slide } from "svelte/transition";
   let isLongEnough = false;
@@ -21,39 +25,37 @@
   }
 </style>
 
-
-  <div class="wrapper">
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <div class="label">Password</div>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <p class="control">
-            <input
-              class="input"
-              value={$password}
-              on:input={updateValue}
-              placeholder="Type your word here" />
-          </p>
-        </div>
-      </div>
+<div class="wrapper">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <div class="label">Password</div>
     </div>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <div class="label">Encrypted</div>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <p class="control">
-            <input
-              class="input is-static"
-              type="text"
-              value={$encrypted}
-              readonly />
-          </p>
-        </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <input
+            class="input"
+            value={$password}
+            on:input={updateValue}
+            placeholder="Type your word here" />
+        </p>
       </div>
     </div>
   </div>
-
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <div class="label">Encrypted</div>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <input
+            class="input is-static"
+            type="text"
+            value={$encrypted}
+            readonly />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
