@@ -17,6 +17,17 @@
     const simplified = e.target.value.toLowerCase().replace(/[^a-z]/g, "");
     password.set(simplified);
   };
+  const copyPassword = () => {
+    console.log($encrypted);
+    navigator.clipboard.writeText($encrypted).then(
+      function () {
+        console.log("Async: Copying to clipboard was successful!");
+      },
+      function (err) {
+        console.error("Async: Could not copy text: ", err);
+      }
+    );
+  };
 </script>
 
 <style>
@@ -47,14 +58,19 @@
       <div class="label">Encrypted</div>
     </div>
     <div class="field-body">
-      <div class="field">
+      <div class="field has-addons">
         <p class="control">
           <input
-            class="input is-static"
+            placeholder="You new password here"
+            class="input"
             type="text"
-            value={$encrypted}
-            readonly />
+            bind:value={$encrypted} />
         </p>
+        <div class="control">
+          <button class="button is-success" on:click={copyPassword}>
+            Copy
+          </button>
+        </div>
       </div>
     </div>
   </div>
